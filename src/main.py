@@ -3,7 +3,7 @@ import uvicorn
 from fastapi.staticfiles import StaticFiles
 
 from core.app_config import app_config
-from routes.v1 import methods_router
+from routes import router as methods_router
 
 app = FastAPI(
         title="Мой API",
