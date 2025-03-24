@@ -10,6 +10,8 @@
 ## Запуск проекта
 `python src/main.py`
 
+## Запуск тестов
+`pytest tests`
 
 ## Environment variables (переменные окружения)
 
