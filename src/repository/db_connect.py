@@ -5,15 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 from core.db_config import db_config
 
-SQLALCHEMY_DATABASE_URL = (
-    'postgresql://{user}:{password}@{host}:{port}/{dbname}'.format(
-        user=db_config.db_user,
-        password=db_config.db_password,
-        host=db_config.db_host,
-        port=db_config.db_port,
-        dbname=db_config.db_name,
-    )
-)
+SQLALCHEMY_DATABASE_URL = db_config.db_url
 
 database = databases.Database(SQLALCHEMY_DATABASE_URL)
 

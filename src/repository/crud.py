@@ -10,14 +10,10 @@ from repository.schemas import FilmSchema, PersonSchema
 def connection(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
+        if "db" in kwargs:  # Если db уже передан, просто вызываем функцию
+            return func(*args, **kwargs)
         with SessionLocal() as session:
-            out = func(
-                *args,
-                **kwargs,
-                db=session,
-            )
-        return out
-
+            return func(*args, **kwargs, db=session)
     return wrapper
 
 
